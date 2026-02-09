@@ -2,7 +2,7 @@ Tulip Interfaces Playwright Tests
 
 Overview
 - End-to-end tests for https://www.saucedemo.com/ written with Playwright.
-- Tests live in tulip_interfaces/test.spec.ts.
+- Tests live in tests/test.spec.ts.
 
 Requirements
 - Node.js 18+ recommended.
@@ -14,7 +14,7 @@ From the workspace root:
 
 Run tests
 From the workspace root:
-- npx playwright test tulip_interfaces/test.spec.ts
+- npx playwright test
 
 Environment variables (optional)
 - SAUCEDEMO_USER (default: standard_user)

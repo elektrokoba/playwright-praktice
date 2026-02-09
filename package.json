@@ -1,0 +1,17 @@
+{
+  "name": "playwright-praktice",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Playwright tests for saucedemo",
+  "type": "module",
+  "scripts": {
+    "install": "npm i && playwright install",
+    "test": "playwright test",
+    "headed": "playwright test --headed",
+    "debug": "playwright test --debug"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "dotenv": "^16.6.1"
+  }
+}
