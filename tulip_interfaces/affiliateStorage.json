@@ -1,0 +1,29 @@
+{
+  "cookies": [
+    {
+      "name": "affiliate_tracking",
+      "value": "QA_INFLUENCER",
+      "domain": "www.saucedemo.com",
+      "path": "/",
+      "expires": 1773257063,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://www.saucedemo.com",
+      "localStorage": [
+        {
+          "name": "backtrace-guid",
+          "value": "3ed6bb95-1b97-4344-bd6f-b50e27675fd1"
+        },
+        {
+          "name": "backtrace-last-active",
+          "value": "1770665061952"
+        }
+      ]
+    }
+  ]
+}
