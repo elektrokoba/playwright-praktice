@@ -19,6 +19,7 @@ Run tests
 From the workspace root:
 - npx playwright test
 - CI runs cross-browser projects: chromium, firefox, webkit, and mobile-chrome.
+- Test tags: @smoke for fast PR gates, @regression for full/nightly coverage.
 
 Environment variables (optional)
 - SAUCEDEMO_USER (default: standard_user)
@@ -31,3 +32,4 @@ Notes
 - Shared beforeEach in tests/fixtures/test-fixtures.ts opens the inventory page baseline.
 - Playwright saves authenticated state to playwright/.auth/user.json and reuses it for spec tests.
 - API+UI example test: tests/checkout/api-ui-checkout.spec.ts seeds checkout form data via API before validating UI flow.
+- Quality gates: pull requests run @smoke tests, nightly schedule runs the full suite.

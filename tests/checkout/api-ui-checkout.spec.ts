@@ -1,7 +1,7 @@
 import { test } from '../fixtures/test-fixtures';
 import { fetchCheckoutSeed } from '../api/seed-client';
 
-test('seeds checkout data via API and validates purchase in UI', async ({ request, inventoryPage, cartPage, checkoutPage }) => {
+test('seeds checkout data via API and validates purchase in UI @regression', async ({ request, inventoryPage, cartPage, checkoutPage }) => {
   const seed = await fetchCheckoutSeed(request);
 
   await inventoryPage.addItems(['sauce-labs-backpack']);

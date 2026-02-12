@@ -18,14 +18,14 @@ async function goToCheckoutStepOne(
   await cartPage.checkout();
 }
 
-test('happy path checkout completes successfully', async ({ inventoryPage, cartPage, checkoutPage }) => {
+test('happy path checkout completes successfully @smoke @regression', async ({ inventoryPage, cartPage, checkoutPage }) => {
   await goToCheckoutStepOne(inventoryPage, cartPage);
   await checkoutPage.fillInformation(checkoutInfo);
   await checkoutPage.finishOrder();
   await checkoutPage.expectOrderComplete();
 });
 
-test('invalid promo code is rejected or capability is explicitly absent', async ({ inventoryPage, cartPage, checkoutPage }) => {
+test('invalid promo code is rejected or capability is explicitly absent @regression', async ({ inventoryPage, cartPage, checkoutPage }) => {
   await goToCheckoutStepOne(inventoryPage, cartPage);
   await checkoutPage.fillInformation(checkoutInfo);
 
@@ -39,7 +39,7 @@ test('invalid promo code is rejected or capability is explicitly absent', async 
   await checkoutPage.expectPromoCapabilityAbsent();
 });
 
-test('empty cart checkout keeps zero-item summary', async ({ inventoryPage, cartPage, page, checkoutPage }) => {
+test('empty cart checkout keeps zero-item summary @regression', async ({ inventoryPage, cartPage, page, checkoutPage }) => {
   await inventoryPage.openCart();
   await cartPage.expectLoaded();
   await cartPage.expectItemsCount(0);
@@ -51,7 +51,7 @@ test('empty cart checkout keeps zero-item summary', async ({ inventoryPage, cart
   await expect(page.locator('.cart_item')).toHaveCount(0);
 });
 
-test('payment failure is surfaced or payment step capability is explicitly absent', async ({ inventoryPage, cartPage, checkoutPage }) => {
+test('payment failure is surfaced or payment step capability is explicitly absent @regression', async ({ inventoryPage, cartPage, checkoutPage }) => {
   await goToCheckoutStepOne(inventoryPage, cartPage);
   await checkoutPage.fillInformation(checkoutInfo);
 
@@ -65,7 +65,7 @@ test('payment failure is surfaced or payment step capability is explicitly absen
   await checkoutPage.expectStepTwoLoaded();
 });
 
-test('order confirmation displays expected content', async ({ inventoryPage, cartPage, checkoutPage, page }) => {
+test('order confirmation displays expected content @smoke @regression', async ({ inventoryPage, cartPage, checkoutPage, page }) => {
   await goToCheckoutStepOne(inventoryPage, cartPage);
   await checkoutPage.fillInformation(checkoutInfo);
   await checkoutPage.finishOrder();

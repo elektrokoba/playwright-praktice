@@ -5,7 +5,7 @@ const authFile = 'playwright/.auth/user.json';
 const SAUCE_USER = process.env.SAUCEDEMO_USER ?? 'standard_user';
 const SAUCE_PASS = process.env.SAUCEDEMO_PASS ?? 'secret_sauce';
 
-setup('authenticate user', async ({ page }) => {
+setup('authenticate user @smoke @regression', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await loginPage.goto();

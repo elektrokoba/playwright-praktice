@@ -1,13 +1,15 @@
 name: Playwright Tests
 
 on:
-  push:
-    branches: ["main"]
   pull_request:
     branches: ["main"]
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
 
 jobs:
-  test:
+  smoke-pr:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -27,5 +29,29 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run tests
+      - name: Run smoke tests on PR
+        run: npx playwright test --grep "@smoke" --project=chromium --project=firefox --project=webkit --project=mobile-chrome
+
+  full-nightly:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run full nightly suite
         run: npx playwright test --project=chromium --project=firefox --project=webkit --project=mobile-chrome

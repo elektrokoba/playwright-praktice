@@ -2,7 +2,7 @@ import { expect, test } from './fixtures/test-fixtures';
 import type { BrowserContext } from '@playwright/test';
 
 // Test 1: A user can add a few items to their cart and successfully purchase the items
-test('user can add items to cart and complete purchase on saucedemo', async ({ inventoryPage, cartPage, checkoutPage }) => {
+test('user can add items to cart and complete purchase on saucedemo @smoke @regression', async ({ inventoryPage, cartPage, checkoutPage }) => {
     const itemSlugs = [
         'sauce-labs-backpack',
         'sauce-labs-bike-light',
@@ -24,7 +24,7 @@ test('user can add items to cart and complete purchase on saucedemo', async ({ i
 });
 
 // Test 2: Add at least 3 items, navigate to cart, remove an item, verify remaining items and cart count
-test('user can remove an item from cart and cart count updates', async ({ inventoryPage, cartPage }) => {
+test('user can remove an item from cart and cart count updates @regression', async ({ inventoryPage, cartPage }) => {
     await inventoryPage.addItems([
         'sauce-labs-backpack',
         'sauce-labs-bike-light',
@@ -43,7 +43,7 @@ test('user can remove an item from cart and cart count updates', async ({ invent
 });
 
 // Test 3: Sorting dropdown - verify four sort methods
-test('user can sort items by name and price in all four ways', async ({ inventoryPage }) => {
+test('user can sort items by name and price in all four ways @smoke @regression', async ({ inventoryPage }) => {
     await inventoryPage.sortBy('az');
     const namesAZ = await inventoryPage.itemNames();
     expect(namesAZ).toEqual([...namesAZ].sort((a, b) => a.localeCompare(b)));
@@ -83,7 +83,7 @@ async function persistContext(context: BrowserContext, filepath = 'affiliateStor
     await context.storageState({ path: filepath });
 }
 
-test('affiliate link sets affiliate_tracking cookie with 30-day expiry and shows banner + sends on order', async ({ browser, inventoryPage, cartPage, checkoutPage }) => {
+test('affiliate link sets affiliate_tracking cookie with 30-day expiry and shows banner + sends on order @regression', async ({ browser, inventoryPage, cartPage, checkoutPage }) => {
     const AFF_ID = 'QA_INFLUENCER';
 
     // create fresh context and page
