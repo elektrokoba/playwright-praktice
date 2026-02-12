@@ -1,4 +1,4 @@
-Tulip Interfaces Playwright Tests
+Playwright Tests
 
 Overview
 - End-to-end tests for https://www.saucedemo.com/ written with Playwright.
