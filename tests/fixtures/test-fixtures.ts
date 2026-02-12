@@ -11,9 +11,6 @@ type AppFixtures = {
   checkoutPage: CheckoutPage;
 };
 
-const SAUCE_USER = process.env.SAUCEDEMO_USER ?? 'standard_user';
-const SAUCE_PASS = process.env.SAUCEDEMO_PASS ?? 'secret_sauce';
-
 export const test = base.extend<AppFixtures>({
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
@@ -31,7 +28,6 @@ export const test = base.extend<AppFixtures>({
 
 export { expect } from '@playwright/test';
 
-test.beforeEach(async ({ loginPage }) => {
-  await loginPage.goto();
-  await loginPage.login(SAUCE_USER, SAUCE_PASS);
+test.beforeEach(async ({ page }) => {
+  await page.goto('/inventory.html');
 });

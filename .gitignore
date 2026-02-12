@@ -7,6 +7,7 @@ node_modules/
 # Playwright
 playwright-report/
 playwright/.cache/
+playwright/.auth/
 
 # Test artifacts
 test-results/

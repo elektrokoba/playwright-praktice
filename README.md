@@ -3,6 +3,7 @@ Tulip Interfaces Playwright Tests
 Overview
 - End-to-end tests for https://www.saucedemo.com/ written with Playwright.
 - Main specs live in tests/test.spec.ts.
+- Auth setup lives in tests/auth.setup.ts.
 - Reusable fixtures live in tests/fixtures/test-fixtures.ts.
 - Page objects live in tests/pages/.
 
@@ -24,4 +25,5 @@ Environment variables (optional)
 
 Notes
 - The affiliate test stores a storage state file at tulip_interfaces/affiliateStorage.json.
-- Base login setup is centralized in a shared beforeEach hook in tests/fixtures/test-fixtures.ts.
+- Shared beforeEach in tests/fixtures/test-fixtures.ts opens the inventory page baseline.
+- Playwright saves authenticated state to playwright/.auth/user.json and reuses it for spec tests.
