@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -28,10 +28,38 @@ export default defineConfig({
       testMatch: '**/auth.setup.ts'
     },
     {
-      name: 'e2e',
+      name: 'chromium',
       testMatch: '**/*.spec.ts',
       dependencies: ['setup'],
       use: {
+        ...devices['Desktop Chrome'],
+        storageState: authFile
+      }
+    },
+    {
+      name: 'firefox',
+      testMatch: '**/*.spec.ts',
+      dependencies: ['setup'],
+      use: {
+        ...devices['Desktop Firefox'],
+        storageState: authFile
+      }
+    },
+    {
+      name: 'webkit',
+      testMatch: '**/*.spec.ts',
+      dependencies: ['setup'],
+      use: {
+        ...devices['Desktop Safari'],
+        storageState: authFile
+      }
+    },
+    {
+      name: 'mobile-chrome',
+      testMatch: '**/*.spec.ts',
+      dependencies: ['setup'],
+      use: {
+        ...devices['Pixel 5'],
         storageState: authFile
       }
     }

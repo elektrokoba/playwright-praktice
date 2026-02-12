@@ -18,6 +18,7 @@ From the workspace root:
 Run tests
 From the workspace root:
 - npx playwright test
+- CI runs cross-browser projects: chromium, firefox, webkit, and mobile-chrome.
 
 Environment variables (optional)
 - SAUCEDEMO_USER (default: standard_user)

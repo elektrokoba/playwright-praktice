@@ -28,4 +28,4 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run tests
-        run: npm test
+        run: npx playwright test --project=chromium --project=firefox --project=webkit --project=mobile-chrome
