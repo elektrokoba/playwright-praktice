@@ -22,8 +22,10 @@ From the workspace root:
 Environment variables (optional)
 - SAUCEDEMO_USER (default: standard_user)
 - SAUCEDEMO_PASS (default: secret_sauce)
+- SEED_API_URL (default: https://dummyjson.com/users/1)
 
 Notes
 - The affiliate test stores a storage state file at tulip_interfaces/affiliateStorage.json.
 - Shared beforeEach in tests/fixtures/test-fixtures.ts opens the inventory page baseline.
 - Playwright saves authenticated state to playwright/.auth/user.json and reuses it for spec tests.
+- API+UI example test: tests/checkout/api-ui-checkout.spec.ts seeds checkout form data via API before validating UI flow.
