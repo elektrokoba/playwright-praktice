@@ -2,7 +2,9 @@ Tulip Interfaces Playwright Tests
 
 Overview
 - End-to-end tests for https://www.saucedemo.com/ written with Playwright.
-- Tests live in tests/test.spec.ts.
+- Main specs live in tests/test.spec.ts.
+- Reusable fixtures live in tests/fixtures/test-fixtures.ts.
+- Page objects live in tests/pages/.
 
 Requirements
 - Node.js 18+ recommended.
@@ -22,3 +24,4 @@ Environment variables (optional)
 
 Notes
 - The affiliate test stores a storage state file at tulip_interfaces/affiliateStorage.json.
+- Base login setup is centralized in a shared beforeEach hook in tests/fixtures/test-fixtures.ts.
