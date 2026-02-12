@@ -24,6 +24,7 @@ Environment variables (optional)
 - SAUCEDEMO_USER (default: standard_user)
 - SAUCEDEMO_PASS (default: secret_sauce)
 - SEED_API_URL (default: https://dummyjson.com/users/1)
+- PW_RETRIES (default local: 0, CI: 2)
 
 Notes
 - The affiliate test stores a storage state file at tulip_interfaces/affiliateStorage.json.

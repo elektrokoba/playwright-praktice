@@ -7,11 +7,12 @@ process.env.SAUCEDEMO_USER ??= 'standard_user';
 process.env.SAUCEDEMO_PASS ??= 'secret_sauce';
 
 const authFile = 'playwright/.auth/user.json';
+const retries = process.env.CI ? 2 : Number(process.env.PW_RETRIES ?? 0);
 
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
-  retries: process.env.CI ? 2 : 0,
+  retries,
   workers: process.env.CI ? 2 : undefined,
   reporter: [
     ['list'],
@@ -20,7 +21,9 @@ export default defineConfig({
   use: {
     baseURL: 'https://www.saucedemo.com',
     testIdAttribute: 'data-test',
-    trace: 'on-first-retry'
+    trace: 'on-first-retry',
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure'
   },
   projects: [
     {
