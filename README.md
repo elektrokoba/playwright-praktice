@@ -1,5 +1,7 @@
 Playwright Tests
 
+[![Playwright Tests](https://github.com/elektrokoba/playwright-praktice/actions/workflows/playwright.yml/badge.svg)](https://github.com/elektrokoba/playwright-praktice/actions/workflows/playwright.yml)
+
 Overview
 - End-to-end tests for https://www.saucedemo.com/ written with Playwright.
 - Main specs live in tests/test.spec.ts.
